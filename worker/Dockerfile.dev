@@ -1,0 +1,11 @@
+FROM node:alpine
+#base image
+WORKDIR "/app"
+#directory in container /app
+COPY ./package.json ./
+#copy package.json file over to the container
+RUN npm install
+COPY . .
+#copy everything else
+CMD ["npm", "run", "dev"]
+#dev is used in the development environment
