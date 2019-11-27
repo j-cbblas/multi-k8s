@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: thejuanb-tls
+spec:
+  secretName: thejuanb
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: thejuanb.com
+  dnsNames:
+    - thejuanb.com
+    - www.thejuanb.com
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - thejuanb.com
+          - www.thejuanb.com
